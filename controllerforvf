@@ -1,0 +1,44 @@
+// code for controller in apex
+public without sharing class OpportunityController1 {
+    public Opportunity opp { get; private set; }
+
+    public OpportunityController1() {
+        // Initialize the Opportunity based on your requirements (e.g., querying from database)
+        // Replace this with your logic to retrieve the relevant Opportunity record.
+        // For example, you can query the Opportunity by its Id.
+        opp = [SELECT Id,search__c, StageName FROM Opportunity WHERE Id = :ApexPages.currentPage().getParameters().get('oppId')];
+    }
+
+    // Method to update Opportunity stage to "Closed Won"
+    public PageReference updateOpportunityStageToClosedWon() {
+        opp.StageName = 'Closed Won';
+        update opp;
+        PageReference successPage = Page.OpportunityUpdatedPage; 
+        successPage.getParameters().put('param1', opp.search__c);
+         successPage.getParameters().put('param2', 'value2');
+         successPage.setRedirect(true);
+       return successPage;
+    }
+
+    // Method to update Opportunity stage to "Another Stage"
+    public PageReference updateOpportunityStageToAnotherStage() {
+        opp.StageName = 'Prospecting'; // Replace with your desired stage name
+        update opp;
+        PageReference successPage = Page.OpportunityUpdatedPage; 
+        successPage.getParameters().put('param1', opp.search__c);
+         successPage.getParameters().put('param2', 'value2');
+         successPage.setRedirect(true);
+       return successPage;
+    }
+
+    // Method to update Opportunity stage to "Different Stage"
+    public PageReference updateOpportunityStageToDifferentStage() {
+        opp.StageName = 'Qualification'; // Replace with your desired stage name
+        update opp;
+        PageReference successPage = Page.OpportunityUpdatedPage; 
+        successPage.getParameters().put('param1', opp.search__c);
+         successPage.getParameters().put('param2', 'value2');
+         successPage.setRedirect(true);
+       return successPage;
+    }
+}
