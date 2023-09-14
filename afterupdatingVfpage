@@ -1,0 +1,84 @@
+// use the same api name as in the apex controller
+
+
+<apex:page >
+    <style>
+        /* CSS styles for the entire page */
+        body {
+            text-align: center; /* Center-align text */
+        }
+        
+        /* CSS styles for the header image */
+        .header {
+            background-image: url('https://templatefor.net/wp-content/uploads/2019/01/Simple-Footer.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            padding: 30px 0;
+            color: #fff; /* Text color for the header */
+        }
+        
+        /* CSS styles for the footer image */
+        .footer {
+            background-image: url(''); /* Replace with your image URL */
+            background-size: cover;
+            padding: 30px 0;
+            color: #fff; /* Text color for the footer */
+        }
+        
+        /* CSS styles for the countdown message */
+        #countdownMessage {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007acc; /* Change to your desired color */
+        }
+        
+        /* CSS styles for other text messages */
+        .message {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333; /* Change to your desired color */
+        }
+    </style>
+    
+    <!-- Header section with background image -->
+    <div class="header">
+        <h1>Opportunity Updated</h1>
+    </div>
+    
+    <!-- Main content section -->
+    <div>
+        <p class="message">The Opportunity status has been updated to "Closed Won."</p>
+        <p class="message">Param 1: {!$CurrentPage.parameters.param1}</p>
+        <p class="message">Param 2: {!$CurrentPage.parameters.param2}</p>
+    </div>
+    
+    <!-- Countdown message section -->
+    <p id="countdownMessage"></p>
+    
+    <!-- Footer section with background image -->
+    <div class="footer">
+        <!-- Add footer content if needed -->
+    </div>
+    
+    <script>
+        var countdown = 3; // Initial countdown value in seconds
+        
+        function updateCountdownMessage() {
+            var message = "This page will close in " + countdown + " seconds.";
+            document.getElementById("countdownMessage").innerHTML = message;
+        }
+        
+        // Show the initial message
+        updateCountdownMessage();
+        
+        // Update the countdown message every second
+        var countdownInterval = setInterval(function() {
+            countdown--;
+            if (countdown <= 0) {
+                clearInterval(countdownInterval); // Stop the countdown
+                window.close(); // Close the page
+            } else {
+                updateCountdownMessage(); // Update the message
+            }
+        }, 1000); // Update every 1000 milliseconds (1 second)
+    </script>
+</apex:page>
