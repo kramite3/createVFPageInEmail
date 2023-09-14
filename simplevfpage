@@ -1,0 +1,10 @@
+//create according to the buttons created in the email template
+
+
+<apex:page controller="OpportunityController1" action="{!updateOpportunityStageToDifferentStage}">
+    <!-- Your Visualforce page content here -->
+    hello
+</apex:page>
+
+
+
