@@ -1,0 +1,52 @@
+<messaging:emailTemplate subject="Opportunity Status Update" recipientType="User" relatedToType="Opportunity">
+    <messaging:htmlEmailBody >
+        <![CDATA[
+        Congratulations! This is your Email Template.
+
+        <p>Click one of the buttons below to change the Opportunity status:</p>
+
+        <!-- Button to update to "Closed Won" -->
+        <p><a href="nookkar-dev-ed.develop.lightning.force.com/apex/OpportunityController1/updateOpportunityStageToClosedWon?oppId={!relatedTo.Id}" style="background-color:#008CBA;color:#ffffff;display:inline-block;font-size:14px;line-height:30px;text-align:center;text-decoration:none;width:200px;-webkit-text-size-adjust:none;">Change to Closed Won</a></p>
+
+        <!-- Button to update to another stage -->
+        <p><a href="nookkar-dev-ed.develop.lightning.force.com/apex/OpportunityController1/updateOpportunityStageToAnotherStage?oppId={!relatedTo.Id}" style="background-color:#008CBA;color:#ffffff;display:inline-block;font-size:14px;line-height:30px;text-align:center;text-decoration:none;width:200px;-webkit-text-size-adjust:none;">Change to Another Stage</a></p>
+
+        <!-- Button to update to a different stage -->
+        <p><a href="nookkar-dev-ed.develop.lightning.force.com/apex/OpportunityController1/updateOpportunityStageToDifferentStage?oppId={!relatedTo.Id}" style="background-color:#008CBA;color:#ffffff;display:inline-block;font-size:14px;line-height:30px;text-align:center;text-decoration:none;width:200px;-webkit-text-size-adjust:none;">Change to Different Stage</a></p>
+
+        Opportunity Id: {!relatedTo.Id}
+
+        <!-- Display Account Fields in Two Columns -->
+        <table>
+            <tr>
+                <td>{!relatedTo.Account.Name}</td>
+                <td>{!relatedTo.Account.Type}</td>
+            </tr>
+            <tr>
+                <td>{!relatedTo.Account.Industry}</td>
+                <td>{!relatedTo.Account.Phone}</td>
+            </tr>
+            <tr>
+                <td>{!relatedTo.Account.Website}</td>
+                <td>{!relatedTo.Account.BillingAddress}</td>
+            </tr>
+        </table>
+
+        <!-- Display Contact Fields in Two Columns -->
+        <table>
+            <tr>
+                <td>{!relatedTo.Primary_Contact__r.Name}</td>
+                <td>{!relatedTo.Primary_Contact__r.Title}</td>
+            </tr>
+            <tr>
+                <td>{!relatedTo.Primary_Contact__r.Email}</td>
+                <td>{!relatedTo.Primary_Contact__r.Phone}</td>
+            </tr>
+            <tr>
+                <td>{!relatedTo.Primary_Contact__r.MailingAddress}</td>
+                <td>{!relatedTo.Primary_Contact__r.Department}</td>
+            </tr>
+        </table>
+        ]]>
+    </messaging:htmlEmailBody>
+</messaging:emailTemplate>
