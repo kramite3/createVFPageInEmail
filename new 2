@@ -1,0 +1,19 @@
+<!-- ... Your existing code above ... -->
+
+<!-- Display Account Fields in Two Columns -->
+<table>
+    <!-- ... Your existing code for Account fields ... -->
+</table>
+
+<!-- Display Contact Fields in Two Columns -->
+<table>
+    <!-- ... Your existing code for Contact fields ... -->
+</table>
+
+<!-- Note in a Rectangular Box with Red Text -->
+<div style="border: 1px solid #ff0000; padding: 10px; margin-top: 20px; background-color: #ffeeee; color: #ff0000;">
+    <p><strong>Important Note:</strong></p>
+    <p>This is an important message in red text inside a rectangular box.</p>
+</div>
+
+<![CDATA[ ... Your existing code below ... ]] 
